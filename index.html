@@ -3,52 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Le Voyage de Shaïly</title>
 
 <style>
 body{
 margin:0;
+background:#f7f3eb;
 font-family:Georgia,serif;
-background:#f6f2ea;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
+color:#2f2f2f;
 }
 
 .livre{
 background:white;
-max-width:700px;
-padding:50px;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.2);
+max-width:650px;
+width:90%;
+padding:60px 40px;
+border-radius:24px;
+box-shadow:0 15px 45px rgba(0,0,0,.12);
 text-align:center;
 }
 
 h1{
-font-size:42px;
-margin-bottom:10px;
+font-size:52px;
+margin-bottom:15px;
 }
 
 h2{
 font-weight:normal;
-color:#777;
+color:#8a8a8a;
+margin-top:0;
+margin-bottom:40px;
 }
 
-p{
+.dedicace{
+font-style:italic;
 font-size:22px;
-line-height:1.8;
+margin-bottom:40px;
 }
 
-button{
-margin-top:40px;
-padding:15px 35px;
-font-size:20px;
-background:#7ca982;
-border:none;
+.texte{
+font-size:24px;
+line-height:1.8;
+margin-bottom:50px;
+}
+
+a{
+display:inline-block;
+padding:18px 42px;
+background:#7fa882;
 color:white;
-border-radius:12px;
-cursor:pointer;
+text-decoration:none;
+border-radius:14px;
+font-size:22px;
+transition:.3s;
+}
+
+a:hover{
+background:#6a9270;
 }
 </style>
 
@@ -62,24 +78,23 @@ cursor:pointer;
 
 <h2>Le petit trésor caché sous son aile</h2>
 
-<p>
+<div class="dedicace">
+Pour Matteo ❤️
+</div>
 
-Les histoires les plus précieuses sont souvent les plus fragiles.
+<div class="texte">
 
-<br><br>
+Il existe des histoires qui ne cherchent pas à être lues rapidement.
 
-Prends ton temps.
+Elles demandent simplement que l'on prenne le temps de marcher avec elles.
 
-</p>
+Aujourd'hui commence un voyage.
 
-<button onclick="alert('Bienvenue dans le Voyage de Shaïly ❤️')">
+</div>
 
-Ouvrir le livre
-
-</button>
+<a href="page1.html">Ouvrir le livre</a>
 
 </div>
 
 </body>
-
 </html>
