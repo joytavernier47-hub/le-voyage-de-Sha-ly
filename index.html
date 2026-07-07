@@ -1,76 +1,281 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Le Voyage de Shaïly</title>
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-body{
-margin:0;
-background:#f6f0e8;
-font-family:Georgia,serif;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.couverture{
-width:100%;
-max-width:1000px;
-margin:auto;
-}
-
-.couverture img{
-width:100%;
-display:block;
-}
-
-.bouton{
-text-align:center;
-margin:40px;
-}
-
-a{
-background:#2e4d78;
-color:white;
-padding:18px 45px;
-border-radius:40px;
-font-size:24px;
-text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,.25);
-transition:.3s;
-}
-
-a:hover{
-background:#46689b;
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-  
-<div style="display:flex;justify-content:center;align-items:center;min-height:100vh;background:#f5f1e8;padding:20px;">
 
-<a href="page1.html" style="display:block;max-width:900px;width:100%;">
-    <img src="F697275B-5C3C-4649-92E6-B5B3B925AF8E.PNG"
-         alt="Le Voyage de Shaïly"
-         style="width:100%;display:block;border-radius:25px;box-shadow:0 20px 50px rgba(0,0,0,.35);">
-</a>
+<!-- ================= COUVERTURE ================= -->
+
+<section id="cover">
+
+<div class="cover-box">
+
+<h1>Le Voyage de Shaïly</h1>
+
+<h2>Le trésor caché sous son aile</h2>
+
+<img
+src="images/couverture.png"
+class="cover-image"
+alt="Couverture">
+
+<button id="ouvrir">
+
+Ouvrir le livre
+
+</button>
 
 </div>
 
-         
+</section>
 
+<!-- ================= LIVRE ================= -->
 
+<section id="book" class="hidden">
 
+<div class="book">
 
+<!-- PAGE GAUCHE -->
 
+<div class="left-page">
 
+<h1 id="titre">
 
+Les regards
+
+</h1>
+
+<p id="texte">
+
+Deux jeunes poules d'eau vivaient sur le même lac.
+
+Elles s'étaient déjà croisées plusieurs fois sans jamais se parler.
+
+Pourtant...
+
+Quelque chose semblait déjà les rapprocher.
+
+</p>
+
+</div>
+
+<!-- PAGE DROITE -->
+
+<div class="right-page">
+
+<img
+id="illustration"
+src="images/page1.png"
+alt="Illustration">
+
+</div>
+
+</div>
+
+<div class="navigation">
+
+<button id="precedent">
+
+← Précédent
+
+</button>
+
+<span id="numero">
+
+1 / 12
+
+</span>
+
+<button id="suivant">
+
+Suivant →
+
+</button>
+
+</div>
+
+</section>
+<script>
+
+const pages = [
+
+{
+titre:"Les regards",
+texte:`Deux jeunes poules d'eau vivaient sur le même lac.
+
+Elles s'étaient déjà croisées plusieurs fois sans jamais se parler.
+
+Pourtant...
+
+Quelque chose semblait déjà les rapprocher.`,
+
+image:"images/page1.png"
+},
+
+{
+titre:"La rencontre",
+texte:`Grâce à un ami, leurs chemins se croisèrent enfin.
+
+À partir de ce jour-là, ils ne se quittèrent presque plus.`,
+
+image:"images/page2.png"
+},
+
+{
+titre:"Le brin d'herbe",
+texte:`Un jour, Matteo ramassa un petit brin d'herbe.
+
+Il le passa autour de l'aile de Shaïly comme une bague.
+
+Puis il lui dit :
+
+« Ne la donne pas à une autre poule d'eau. »`,
+
+image:"images/page3.png"
+},
+
+{
+titre:"Inséparables",
+texte:`Ils riaient, voyageaient et construisaient leur histoire ensemble.`,
+
+image:"images/page4.png"
+},
+
+{
+titre:"Le nid",
+texte:`Ils construisirent leur premier nid rempli de rêves et de projets.`,
+
+image:"images/page5.png"
+},
+
+{
+titre:"Les tempêtes",
+texte:`Les disputes prirent peu à peu plus de place que les sourires.`,
+
+image:"images/page6.png"
+},
+
+{
+titre:"Le départ",
+texte:`Un jour, Matteo quitta le nid.
+
+Shaïly resta seule.`,
+
+image:"images/page7.png"
+},
+
+{
+titre:"Le silence",
+texte:`Le lac semblait soudain beaucoup plus grand et silencieux.`,
+
+image:"images/page8.png"
+},
+
+{
+titre:"Le vide",
+texte:`Sous son aile, Shaïly gardait toujours le petit brin d'herbe.`,
+
+image:"images/page9.png"
+},
+
+{
+titre:"Les jours continuent",
+texte:`Quelques jours passèrent.
+
+Le soleil continuait de se lever sur le lac.`,
+
+image:"images/page10.png"
+},
+
+{
+titre:"Un peu de lumière",
+texte:`Petit à petit, Shaïly releva doucement la tête.`,
+
+image:"images/page11.png"
+},
+
+{
+titre:"Pour Matteo",
+texte:`Parce que certaines histoires ne s'oublient jamais.
+
+Merci d'avoir fait partie de la mienne. ❤️`,
+
+image:"images/page12.png"
+}
+
+];
+
+let page = 0;
+
+const cover = document.getElementById("cover");
+const book = document.getElementById("book");
+
+const titre = document.getElementById("titre");
+const texte = document.getElementById("texte");
+const image = document.getElementById("illustration");
+const numero = document.getElementById("numero");
+
+function afficher(){
+
+titre.textContent = pages[page].titre;
+
+texte.innerHTML = pages[page].texte.replace(/\\n/g,"<br><br>");
+
+image.src = pages[page].image;
+
+numero.textContent = (page+1)+" / "+pages.length;
+
+}
+
+document.getElementById("ouvrir").onclick = () => {
+
+cover.classList.add("hidden");
+book.classList.remove("hidden");
+
+afficher();
+
+};
+
+document.getElementById("suivant").onclick = () => {
+
+if(page < pages.length-1){
+
+page++;
+
+afficher();
+
+}
+
+};
+
+document.getElementById("precedent").onclick = () => {
+
+if(page > 0){
+
+page--;
+
+afficher();
+
+}
+
+};
+
+</script>
 
 </body>
 </html>
-
-    
